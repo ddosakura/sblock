@@ -1,5 +1,11 @@
 package sbi
 
+import (
+	"os"
+
+	"github.com/spf13/afero"
+)
+
 // Config define the raw data of plugin
 type Config struct {
 	Dev bool
@@ -12,7 +18,12 @@ type Config struct {
 
 // Plugin is the interface of plugin
 type Plugin interface {
-	Encode()
-	Example()
-	Decode()
+	SourceFileName() string
+	ExampleFileName() string
+
+	Source(*os.File, func())
+	Encode(path, relPath string, fi os.FileInfo, err error) error
+
+	Example(*os.File)
+	Decode(string) (afero.Fs, error)
 }
