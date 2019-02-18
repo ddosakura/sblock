@@ -2,7 +2,23 @@ package sbgo
 
 import (
 	"../common"
+	"github.com/spf13/afero"
 )
+
+const (
+	sourceFileName  = "raw.go"
+	exampleFileName = "example.go"
+)
+
+// SourceFileName return the FileName of the source
+func (*Plugin) SourceFileName() string {
+	return sourceFileName
+}
+
+//ExampleFileName return the FileName of the example
+func (*Plugin) ExampleFileName() string {
+	return exampleFileName
+}
 
 // Plugin is the lib for golang
 type Plugin struct {
@@ -16,17 +32,7 @@ func New(c *sbi.Config) *Plugin {
 	}
 }
 
-// Encode is the func for generater
-func (*Plugin) Encode() {
-
-}
-
-// Example help user to know how to use the library
-func (*Plugin) Example() {
-
-}
-
-// Decode is the func for your project
-func (*Plugin) Decode() {
-
+// NewFs is the entry of library
+func NewFs(raw string) (afero.Fs, error) {
+	return New(&sbi.Config{}).Decode(raw)
 }
