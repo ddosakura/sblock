@@ -19,10 +19,15 @@ go get -v -u github.com/ddosakura/sblock/sblocker
 See the help
 
 ```bash
-sblock -h
+sblocker -h
 ```
 
 ## Official plugin and library (lang/algorithm)
 
 + golang
-    + zip(default)
+    + origin - Do not use compression to shrink the files.
+    + zip/default
+
+## TODO
+
++ [ ] custom parameters for plugin
