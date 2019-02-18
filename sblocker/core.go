@@ -2,7 +2,11 @@ package main
 
 import (
 	"fmt"
+	"io"
+	"io/ioutil"
 	"os"
+	"path"
+	"path/filepath"
 
 	"../libs/common"
 	"github.com/ddosakura/gklang"
@@ -34,5 +38,76 @@ var (
 // generate code
 func generate() {
 	gklang.Log(gklang.LInfo, "generating")
-	// TODO: generate
+
+	rename(generateSource().Name(), target, generater.SourceFileName())
+
+	rename(generateExample().Name(), example, generater.ExampleFileName())
+}
+
+func generateSource() (f *os.File) {
+	// TODO: add timestamp in tempfilename
+	f, err := ioutil.TempFile("", pkg)
+	if err != nil {
+		gklang.Er(err)
+	}
+
+	generater.Source(f, func() {
+		if err = filepath.Walk(src, func(path string, fi os.FileInfo, err error) error {
+			relPath, err := filepath.Rel(src, path)
+			if err != nil {
+				return err
+			}
+			return generater.Encode(path, relPath, fi, err)
+		}); err != nil {
+			gklang.Er(err)
+		}
+	})
+
+	return
+}
+
+func generateExample() (f *os.File) {
+	f, err := ioutil.TempFile("", pkg+".example")
+	if err != nil {
+		gklang.Er(err)
+	}
+
+	generater.Example(f)
+
+	return
+}
+
+func rename(src, dest, filename string) {
+	err := os.MkdirAll(dest, 0755)
+	if err != nil {
+		gklang.Er(err)
+	}
+
+	targetFile := path.Join(dest, filename)
+
+	// Try to rename generated source.
+	if err := os.Rename(src, targetFile); err == nil {
+		return
+	}
+	// If the rename failed (might do so due to temporary file residing on a
+	// different device), try to copy byte by byte.
+	rc, err := os.Open(src)
+	if err != nil {
+		gklang.Er(err)
+	}
+	defer func() {
+		rc.Close()
+		os.Remove(src) // ignore the error, source is in tmp.
+	}()
+
+	wc, err := os.Create(targetFile)
+	if err != nil {
+		gklang.Er(err)
+	}
+	defer wc.Close()
+
+	if _, err = io.Copy(wc, rc); err != nil {
+		// Delete remains of failed copy attempt.
+		os.RemoveAll(dest)
+	}
 }

@@ -41,7 +41,7 @@ var (
 
 	lang      string
 	algorithm string
-	plugin    string
+	mod       string
 )
 
 func init() {
@@ -55,7 +55,7 @@ func init() {
 
 	rootCmd.PersistentFlags().StringVarP(&lang, "lang", "l", "golang", "The language of generated code.")
 	rootCmd.PersistentFlags().StringVarP(&algorithm, "algorithm", "a", "default", "The compression algorithm to shrink the files.")
-	rootCmd.PersistentFlags().StringVarP(&plugin, "mod", "m", "", "The plugin of generater. This will disable lang and algorithm options!")
+	rootCmd.PersistentFlags().StringVarP(&mod, "mod", "m", "", "The plugin of generater. This will disable lang and algorithm options!")
 }
 
 /*
