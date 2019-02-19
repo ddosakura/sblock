@@ -1,6 +1,7 @@
-package sbi
+package sbi // import "github.com/ddosakura/sblock/libs/common"
 
 import (
+	"errors"
 	"os"
 
 	"github.com/spf13/afero"
@@ -27,3 +28,8 @@ type Plugin interface {
 	Example(*os.File)
 	Decode(string) (afero.Fs, error)
 }
+
+var (
+	// ErrUnknowAlgorithm throw when the algorithm is unknow
+	ErrUnknowAlgorithm = errors.New("Unknow Algorithm")
+)
