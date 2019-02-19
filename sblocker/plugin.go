@@ -1,11 +1,16 @@
 package main
 
 import (
+	"errors"
 	"plugin"
 
 	"../libs/common"
 	"../libs/golang"
 	"github.com/ddosakura/gklang"
+)
+
+var (
+	errUnknowLang = errors.New("Unknow Language")
 )
 
 // set config (dev/pkg/comment/algorithm)
@@ -19,8 +24,12 @@ func loadPlugin() {
 	}
 
 	if mod == "" {
-		// TODO: choose lang
-		generater = sbgo.New(cfg)
+		switch lang {
+		case "golang":
+			generater = sbgo.New(cfg)
+		default:
+			gklang.Er(errUnknowLang)
+		}
 		return
 	}
 

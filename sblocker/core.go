@@ -45,7 +45,7 @@ func generate() {
 }
 
 func generateSource() (f *os.File) {
-	// TODO: add timestamp in tempfilename
+	// ${pkg}${rand}
 	f, err := ioutil.TempFile("", pkg)
 	if err != nil {
 		gklang.Er(err)
@@ -67,6 +67,7 @@ func generateSource() (f *os.File) {
 }
 
 func generateExample() (f *os.File) {
+	// ${pkg}.example${rand}
 	f, err := ioutil.TempFile("", pkg+".example")
 	if err != nil {
 		gklang.Er(err)

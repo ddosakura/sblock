@@ -57,10 +57,3 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&algorithm, "algorithm", "a", "default", "The compression algorithm to shrink the files.")
 	rootCmd.PersistentFlags().StringVarP(&mod, "mod", "m", "", "The plugin of generater. This will disable lang and algorithm options!")
 }
-
-/*
-  -dest string
-        The destination path of the generated package. (default ".")
-  -src string
-        The path of the source directory. (default "public")
-*/
