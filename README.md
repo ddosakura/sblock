@@ -8,6 +8,8 @@ The package include:
 + sblocker: the cli of code generater
 + libs: the plugin to generate code & the library to use the code block
 
+> If you use `golang - origin/zip/default`, the code generated is compatible with [statik](https://github.com/rakyll/statik)
+
 ## Usage
 
 Install the command line tool first.
