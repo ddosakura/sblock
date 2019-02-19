@@ -33,6 +33,8 @@ func New(c *sbi.Config) *Plugin {
 }
 
 // NewFs is the entry of library
-func NewFs(raw string) (afero.Fs, error) {
-	return New(&sbi.Config{}).Decode(raw)
+func NewFs(raw string, algorithm string) (afero.Fs, error) {
+	return New(&sbi.Config{
+		Algorithm: algorithm,
+	}).Decode(raw)
 }
