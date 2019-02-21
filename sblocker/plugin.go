@@ -22,6 +22,7 @@ func loadPlugin() {
 		Algorithm: algorithm,
 		Params:    params,
 	}
+	gklang.Log(gklang.LDebug, cfg)
 
 	if mod == "" {
 		switch lang {
