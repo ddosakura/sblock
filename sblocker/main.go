@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"os"
 
 	"github.com/ddosakura/gklang"
 )
@@ -13,15 +11,9 @@ var (
 )
 
 func main() {
-	l := log.New(os.Stdout, "[SBlocker]: ", log.LstdFlags)
-	if os.Getenv("SBlockerDev") == "true" {
-		dev = true
-	}
-	if dev {
-		gklang.LoadLogger(l, gklang.LvDebug)
-	} else {
-		gklang.LoadLogger(l, gklang.LvInfo)
-	}
+	gklang.Init("SBlocker")
+	dev = gklang.DevMode
+
 	fmt.Println(logo)
 
 	execute()
