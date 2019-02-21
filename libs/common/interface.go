@@ -3,8 +3,6 @@ package sbi // import "github.com/ddosakura/sblock/libs/common"
 import (
 	"errors"
 	"os"
-
-	"github.com/spf13/afero"
 )
 
 // Config define the raw data of plugin
@@ -26,7 +24,6 @@ type Plugin interface {
 	Encode(path, relPath string, fi os.FileInfo, err error) error
 
 	Example(*os.File)
-	Decode(string) (afero.Fs, error)
 }
 
 var (
