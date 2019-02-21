@@ -6,7 +6,9 @@ This package was inspired by the [statik](https://github.com/rakyll/statik) and 
 
 The package includes:
 + sblocker: the cli of code generater
-+ libs: the plugin to generate code & the library to use the code block
++ sbi: the interface
++ plugins: the plugin to generate code
++ libs: the library to use the code block
 
 > If you use `golang - origin/zip/default`, the code generated is compatible with [statik](https://github.com/rakyll/statik)
 
@@ -43,7 +45,7 @@ The library needs:
 First, you should implement the interface:
 
 ```go
-// github.com/ddosakura/sblock/libs/common
+// github.com/ddosakura/sblock/sbi/interface.go
 type Plugin interface {
     ...
 }
@@ -53,6 +55,6 @@ Then you need to provide a library to use the code generated.
 
 ## TODO
 
-+ [ ] split library and plugin
++ [x] split library and plugin
 + [ ] add official nodejs/js plugin
 + [ ] custom parameters for plugin

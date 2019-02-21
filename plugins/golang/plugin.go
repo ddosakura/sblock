@@ -1,14 +1,23 @@
 package sbgo
 
 import (
-	"../common"
-	"github.com/spf13/afero"
+	"../../sbi"
 )
 
 const (
 	sourceFileName  = "raw.go"
 	exampleFileName = "example.go"
 )
+
+var (
+	// ErrUnknowAlgorithm in sbi
+	ErrUnknowAlgorithm = sbi.ErrUnknowAlgorithm
+)
+
+// Plugin is the lib for golang
+type Plugin struct {
+	c *sbi.Config
+}
 
 // SourceFileName return the FileName of the source
 func (*Plugin) SourceFileName() string {
@@ -20,21 +29,9 @@ func (*Plugin) ExampleFileName() string {
 	return exampleFileName
 }
 
-// Plugin is the lib for golang
-type Plugin struct {
-	c *sbi.Config
-}
-
 // New is the entry of the plugin
-func New(c *sbi.Config) *Plugin {
+func New(c *sbi.Config) sbi.Plugin {
 	return &Plugin{
 		c,
 	}
-}
-
-// NewFs is the entry of library
-func NewFs(raw string, algorithm string) (afero.Fs, error) {
-	return New(&sbi.Config{
-		Algorithm: algorithm,
-	}).Decode(raw)
 }

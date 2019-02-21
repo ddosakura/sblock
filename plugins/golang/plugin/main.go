@@ -2,7 +2,7 @@ package main
 
 import (
 	p ".."
-	"../../common"
+	"../../../sbi"
 )
 
 // New is the entry of the plugin

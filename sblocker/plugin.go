@@ -4,8 +4,8 @@ import (
 	"errors"
 	"plugin"
 
-	"../libs/common"
-	"../libs/golang"
+	"../plugins/golang"
+	"../sbi"
 	"github.com/ddosakura/gklang"
 )
 
@@ -17,7 +17,6 @@ var (
 // choose lang / load plugin
 func loadPlugin() {
 	cfg := &sbi.Config{
-		Dev:       dev,
 		PKG:       pkg,
 		Comment:   comment,
 		Algorithm: algorithm,

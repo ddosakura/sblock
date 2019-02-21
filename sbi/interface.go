@@ -1,4 +1,4 @@
-package sbi // import "github.com/ddosakura/sblock/libs/common"
+package sbi // import "github.com/ddosakura/sblock/sbi"
 
 import (
 	"errors"
@@ -7,8 +7,6 @@ import (
 
 // Config define the raw data of plugin
 type Config struct {
-	Dev bool
-
 	PKG     string
 	Comment string
 

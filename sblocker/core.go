@@ -8,7 +8,7 @@ import (
 	"path"
 	"path/filepath"
 
-	"../libs/common"
+	"../sbi"
 	"github.com/ddosakura/gklang"
 )
 

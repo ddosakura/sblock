@@ -5,9 +5,7 @@ import (
 	"io"
 	"os"
 
-	"../common"
 	"github.com/ddosakura/gklang"
-	"github.com/spf13/afero"
 )
 
 var (
@@ -22,7 +20,7 @@ func initAlgorithm(p *Plugin, writer io.Writer) {
 	case "origin", "zip":
 		w = zip.NewWriter(writer)
 	default:
-		gklang.Er(sbi.ErrUnknowAlgorithm)
+		gklang.Er(ErrUnknowAlgorithm)
 	}
 }
 
@@ -33,7 +31,7 @@ func finishAlgorithm(p *Plugin) {
 			gklang.Er(err)
 		}
 	default:
-		gklang.Er(sbi.ErrUnknowAlgorithm)
+		gklang.Er(ErrUnknowAlgorithm)
 	}
 
 }
@@ -43,18 +41,5 @@ func encodeAlgorithm(p *Plugin, relPath string, fi os.FileInfo, b []byte) error 
 	case "origin", "zip":
 		return doZip(p, relPath, fi, b)
 	}
-	return sbi.ErrUnknowAlgorithm
-}
-
-// for library
-
-func decodeAlgorithm(p *Plugin) func(string) (afero.Fs, error) {
-	if p.c.Algorithm == "default" {
-		p.c.Algorithm = "zip"
-	}
-	switch p.c.Algorithm {
-	case "origin", "zip":
-		return unZip
-	}
-	return nil
+	return ErrUnknowAlgorithm
 }

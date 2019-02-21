@@ -6,9 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"../common"
 	"github.com/ddosakura/gklang"
-	"github.com/spf13/afero"
 )
 
 // Example help user to know how to use the library
@@ -27,7 +25,7 @@ import (
 )
 
 func main() {
-	fs, err := sbgo.NewFs(sblock.Raw, "default")
+	fs, err := sb.New(sblock.Raw, "default")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -42,13 +40,4 @@ func main() {
 	if err := ioutil.WriteFile(f.Name(), qb.Bytes(), 0644); err != nil {
 		gklang.Er(err)
 	}
-}
-
-// Decode is the func for your project
-func (p *Plugin) Decode(raw string) (afero.Fs, error) {
-	fn := decodeAlgorithm(p)
-	if fn != nil {
-		return fn(raw)
-	}
-	return nil, sbi.ErrUnknowAlgorithm
 }
