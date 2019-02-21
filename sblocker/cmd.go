@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/ddosakura/gklang"
 	"github.com/spf13/cobra"
 )
 
@@ -10,7 +11,7 @@ var (
 		Short: "A CLI to embed files into project.",
 		Long:  `Embed files into project (such as a Go executable project).`,
 		Run: func(cmd *cobra.Command, args []string) {
-			// gklang.Log(gklang.LDebug, target, example, force)
+			gklang.Log(gklang.LDebug, params)
 
 			// set config (dev/pkg/comment/algorithm)
 			// choose lang / load plugin
@@ -42,6 +43,8 @@ var (
 	lang      string
 	algorithm string
 	mod       string
+
+	params map[string]string
 )
 
 func init() {
@@ -56,4 +59,6 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&lang, "lang", "l", "golang", "The language of generated code.")
 	rootCmd.PersistentFlags().StringVarP(&algorithm, "algorithm", "a", "default", "The compression algorithm to shrink the files.")
 	rootCmd.PersistentFlags().StringVarP(&mod, "mod", "m", "", "The plugin of generater. This will disable lang and algorithm options!")
+
+	rootCmd.PersistentFlags().StringToStringVarP(&params, "param", "v", make(map[string]string), "The custom parameters for plugin.")
 }

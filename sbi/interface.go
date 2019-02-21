@@ -11,6 +11,8 @@ type Config struct {
 	Comment string
 
 	Algorithm string
+
+	Params map[string]string
 }
 
 // Plugin is the interface of plugin

@@ -56,5 +56,5 @@ Then you need to provide a library to use the code generated.
 ## TODO
 
 + [x] split library and plugin
++ [x] custom parameters for plugin
 + [ ] add official nodejs/js plugin
-+ [ ] custom parameters for plugin

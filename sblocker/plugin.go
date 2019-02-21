@@ -20,6 +20,7 @@ func loadPlugin() {
 		PKG:       pkg,
 		Comment:   comment,
 		Algorithm: algorithm,
+		Params:    params,
 	}
 
 	if mod == "" {
