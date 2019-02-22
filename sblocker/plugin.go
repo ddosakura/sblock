@@ -5,6 +5,7 @@ import (
 	"plugin"
 
 	"../plugins/golang"
+	"../plugins/js"
 	"../sbi"
 	"github.com/ddosakura/gklang"
 )
@@ -28,6 +29,8 @@ func loadPlugin() {
 		switch lang {
 		case "golang":
 			generater = sbgo.New(cfg)
+		case "js", "node", "nodejs":
+			generater = sbjs.New(cfg)
 		default:
 			gklang.Er(errUnknowLang)
 		}
