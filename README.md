@@ -31,6 +31,11 @@ sblocker -h
 + golang
     + origin - Do not use compression to shrink the files.
     + zip/default
++ js
+    + origin
+    + zip/default
+
++ [The Catalog of Libs](./libs/README.md)
 
 ## How to implement Plugin
 
@@ -57,4 +62,14 @@ Then you need to provide a library to use the code generated.
 
 + [x] split library and plugin
 + [x] custom parameters for plugin
++ [ ] the description for custom parameters
 + [ ] add official nodejs/js plugin
+    + [ ] sblock4js
+    + [ ] sblock4koa
+    + [ ] sblock-web-driver
+        + custom param `no-dump`
+    + auto yarn/npm
+        + custom param `frontend-path`
++ [ ] overwrite should not delete the target folder
+    + [ ] the `type Plugin interface` need `ForceOverwrite` param
++ [ ] the template to develop sblock-plugin
