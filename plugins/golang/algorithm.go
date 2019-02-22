@@ -5,6 +5,7 @@ import (
 	"io"
 	"os"
 
+	"../algorithm"
 	"github.com/ddosakura/gklang"
 )
 
@@ -38,8 +39,10 @@ func finishAlgorithm(p *Plugin) {
 
 func encodeAlgorithm(p *Plugin, relPath string, fi os.FileInfo, b []byte) error {
 	switch p.c.Algorithm {
-	case "origin", "zip":
-		return doZip(p, relPath, fi, b)
+	case "origin":
+		return algorithm.Zip(false, relPath, fi, b, w)
+	case "zip":
+		return algorithm.Zip(true, relPath, fi, b, w)
 	}
 	return ErrUnknowAlgorithm
 }

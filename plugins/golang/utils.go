@@ -3,14 +3,7 @@ package sbgo
 import (
 	"bytes"
 	"fmt"
-	"strings"
 )
-
-// comment lines prefixes each line in lines with "// ".
-func commentLines(lines string) string {
-	lines = "// " + strings.Replace(lines, "\n", "\n// ", -1)
-	return lines
-}
 
 // FprintZipData converts zip binary contents to a string literal.
 func FprintZipData(dest *bytes.Buffer, zipData []byte) {

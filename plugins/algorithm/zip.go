@@ -1,4 +1,4 @@
-package sbgo
+package algorithm
 
 import (
 	"archive/zip"
@@ -6,7 +6,8 @@ import (
 	"path/filepath"
 )
 
-func doZip(p *Plugin, relPath string, fi os.FileInfo, b []byte) error {
+// Zip used by zip/origin
+func Zip(deflate bool, relPath string, fi os.FileInfo, b []byte, w *zip.Writer) error {
 	fHeader, err := zip.FileInfoHeader(fi)
 	if err != nil {
 		return err
@@ -20,7 +21,7 @@ func doZip(p *Plugin, relPath string, fi os.FileInfo, b []byte) error {
 		}
 	*/
 	fHeader.Name = filepath.ToSlash(relPath)
-	if p.c.Algorithm == "zip" {
+	if deflate {
 		fHeader.Method = zip.Deflate
 	}
 	f, err := w.CreateHeader(fHeader)

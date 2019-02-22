@@ -8,6 +8,7 @@ import (
 	"os"
 	"strings"
 
+	"../utils"
 	"github.com/ddosakura/gklang"
 )
 
@@ -27,7 +28,7 @@ func (p *Plugin) Source(f *os.File, fn func()) {
 
 	var comment string
 	if p.c.Comment != "" {
-		comment = "\n" + commentLines(p.c.Comment)
+		comment = "\n" + utils.CommentLines(p.c.Comment)
 	}
 
 	// then embed it as a quoted string
