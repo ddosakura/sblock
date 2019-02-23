@@ -22,6 +22,7 @@ func loadPlugin() {
 		Comment:   comment,
 		Algorithm: algorithm,
 		Params:    params,
+		Force:     force,
 	}
 	gklang.Log(gklang.LDebug, cfg)
 

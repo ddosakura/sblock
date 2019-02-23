@@ -13,6 +13,8 @@ type Config struct {
 	Algorithm string
 
 	Params map[string]string
+
+	Force bool
 }
 
 // Plugin is the interface of plugin

@@ -68,8 +68,7 @@ Then you need to provide a library to use the code generated.
     + [ ] sblock4koa
     + [ ] sblock-web-driver
         + custom param `no-dump`
-    + auto yarn/npm
-        + custom param `frontend-path`
+    + [ ] print the explain to use yarn/npm
 + [ ] overwrite should not delete the target folder
-    + [ ] the `type Plugin interface` need `ForceOverwrite` param
+    + [x] the `type Plugin interface` need `ForceOverwrite` param
 + [ ] the template to develop sblock-plugin
