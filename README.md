@@ -56,6 +56,9 @@ type Plugin interface {
 }
 ```
 
+> Warning:
+> + If you not only have `SourceFile` and `ExampleFile`, you should deal the `force` flag
+
 Then you need to provide a library to use the code generated.
 
 ## TODO

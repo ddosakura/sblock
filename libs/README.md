@@ -8,8 +8,12 @@ go get -v -u github.com/ddosakura/sblock/libs/golang
 
 ## JavaScript
 
-+ TODO: [sblock4js](https://github.com/ddosakura/sblock4js)
++ [sblock4js](https://github.com/ddosakura/sblock4js)
 + TODO: [sblock-web-driver]()
-+ TODO: [sblock4koa](https://github.com/ddosakura/sblock4koa)
++ [sblock4koa](https://github.com/ddosakura/sblock4koa)
     + https://github.com/koajs/send
     + https://github.com/koajs/static
+    + https://github.com/ZijianHe/koa-router
+    + https://github.com/koajs/mount
+
+TODO: the docs in github&npm
