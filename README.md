@@ -65,12 +65,12 @@ Then you need to provide a library to use the code generated.
 
 + [x] split library and plugin
 + [x] custom parameters for plugin
-+ [ ] the description for custom parameters
++ [x] the description for custom parameters
 + [ ] add official nodejs/js plugin
     + [ ] sblock4js
     + [ ] sblock4koa
     + [ ] sblock-web-driver
-        + custom param `no-dump`
+        + [ ] custom param `no-dump` `raw-name`
     + [ ] print the explain to use yarn/npm
 + [ ] overwrite should not delete the target folder
     + [x] the `type Plugin interface` need `ForceOverwrite` param

@@ -16,7 +16,7 @@ var (
 
 // set config (dev/pkg/comment/algorithm)
 // choose lang / load plugin
-func loadPlugin() {
+func loadPlugin() string {
 	cfg := &sbi.Config{
 		PKG:       pkg,
 		Comment:   comment,
@@ -35,7 +35,7 @@ func loadPlugin() {
 		default:
 			gklang.Er(errUnknowLang)
 		}
-		return
+		return lang
 	}
 
 	gklang.Log(gklang.LInfo, "loading")
@@ -51,4 +51,5 @@ func loadPlugin() {
 	}
 
 	generater = newPlugin.(func(c *sbi.Config) sbi.Plugin)(cfg)
+	return mod
 }

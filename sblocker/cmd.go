@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/ddosakura/gklang"
 	"github.com/spf13/cobra"
 )
@@ -61,4 +63,22 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&mod, "mod", "m", "", "The plugin of generater. This will disable lang and algorithm options!")
 
 	rootCmd.PersistentFlags().StringToStringVarP(&params, "param", "v", make(map[string]string), "The custom parameters for plugin.")
+
+	rootCmd.AddCommand(detailCmd)
 }
+
+var (
+	detailCmd = &cobra.Command{
+		Use:   "detail",
+		Short: "The detail for plugin.",
+		Long:  `Print the help msg in the plugin.`,
+		Run: func(cmd *cobra.Command, args []string) {
+			name := loadPlugin()
+			println("Plugin:\n\t", name)
+			println("Custom Parameters:")
+			for k, v := range generater.DescriptionForParams() {
+				fmt.Printf("\t%16s\t%s\n", k, v)
+			}
+		},
+	}
+)
