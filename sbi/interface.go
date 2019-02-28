@@ -21,6 +21,7 @@ type Config struct {
 type Plugin interface {
 	SourceFileName() string
 	ExampleFileName() string
+	DescriptionForParams() map[string]string
 
 	Source(*os.File, func())
 	Encode(path, relPath string, fi os.FileInfo, err error) error
