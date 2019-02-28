@@ -24,9 +24,16 @@ func (*Plugin) SourceFileName() string {
 	return sourceFileName
 }
 
-//ExampleFileName return the FileName of the example
+// ExampleFileName return the FileName of the example
 func (*Plugin) ExampleFileName() string {
 	return exampleFileName
+}
+
+// DescriptionForParams to print help info
+func (*Plugin) DescriptionForParams() map[string]string {
+	return map[string]string{
+		"path2sblock": "the path of sblock used in example.go",
+	}
 }
 
 // New is the entry of the plugin
