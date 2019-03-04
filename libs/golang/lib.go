@@ -1,7 +1,7 @@
 package sb
 
 import (
-	"../../sbi"
+	"github.com/ddosakura/sblock/sbi"
 	"github.com/spf13/afero"
 )
 
