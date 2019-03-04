@@ -61,6 +61,10 @@ type Plugin interface {
 
 Then you need to provide a library to use the code generated.
 
+> Warning:  
+> Rather than providing a library that uses sblock, I prefer to support it directly in a virtual file system.  
+> On this point, you can track the development of [aferox](https://github.com/ddosakura/aferox)
+
 ## TODO
 
 + [x] split library and plugin
