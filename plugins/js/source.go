@@ -8,8 +8,8 @@ import (
 	"os"
 	"strings"
 
-	"../utils"
 	"github.com/ddosakura/gklang"
+	"github.com/ddosakura/sblock/plugins/utils"
 )
 
 // Source generater the block

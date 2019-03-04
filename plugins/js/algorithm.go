@@ -5,8 +5,8 @@ import (
 	"io"
 	"os"
 
-	"../algorithm"
 	"github.com/ddosakura/gklang"
+	"github.com/ddosakura/sblock/plugins/algorithm"
 )
 
 var (

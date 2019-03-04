@@ -1,7 +1,7 @@
 package sbjs
 
 import (
-	"../../sbi"
+	"github.com/ddosakura/sblock/sbi"
 )
 
 const (
