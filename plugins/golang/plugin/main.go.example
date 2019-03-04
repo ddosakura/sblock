@@ -1,8 +1,8 @@
 package main
 
 import (
-	p ".."
-	"../../../sbi"
+	p "github.com/ddosakura/sblock/plugins/golang"
+	"github.com/ddosakura/sblock/sbi"
 )
 
 // New is the entry of the plugin

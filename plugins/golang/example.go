@@ -24,7 +24,7 @@ import (
 	"log"
 	"net/http"
 
-	"../../../../libs/golang"
+	"github.com/ddosakura/sblock/libs/golang"
 	sblock "%s"
 	"github.com/spf13/afero"
 )

@@ -1,7 +1,7 @@
 package sbgo
 
 import (
-	"../../sbi"
+	"github.com/ddosakura/sblock/sbi"
 )
 
 const (
