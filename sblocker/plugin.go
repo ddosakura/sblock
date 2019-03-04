@@ -4,9 +4,9 @@ import (
 	"errors"
 	"plugin"
 
-	"../plugins/golang"
-	"../plugins/js"
-	"../sbi"
+	"github.com/ddosakura/sblock/plugins/golang"
+	"github.com/ddosakura/sblock/plugins/js"
+	"github.com/ddosakura/sblock/sbi"
 	"github.com/ddosakura/gklang"
 )
 

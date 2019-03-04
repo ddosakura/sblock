@@ -8,8 +8,8 @@ import (
 	"path"
 	"path/filepath"
 
-	"../sbi"
 	"github.com/ddosakura/gklang"
+	"github.com/ddosakura/sblock/sbi"
 )
 
 // test src/target/example with force
