@@ -1,4 +1,4 @@
-package sbi // import "github.com/ddosakura/sblock/sbi"
+package sbi
 
 import (
 	"errors"
